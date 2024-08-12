@@ -179,6 +179,7 @@ export class Service {
       _page?: number
       _per_page?: number
       _select?: string | string[]
+      q?: string
     } = {},
   ): Item[] | PaginatedItems | Item | undefined {
     let items = this.#get(name)
@@ -316,6 +317,21 @@ export class Service {
     // Sort
     const sort = query._sort || ''
     let sorted = sortOn(res, sort.split(','))
+    const searchQuery = query.q
+
+    // Search
+    if (searchQuery != null && searchQuery != '') {
+      sorted = sorted.filter(item => {
+        for (const prop in item) {
+          if (typeof item[prop] === 'string') {
+            if (item[prop].toLowerCase().includes(searchQuery.toLowerCase()) ) {
+              return true
+            }
+          }
+        }
+        return false
+      })
+    }
 
     // Keep only selected properties
     if (conds.hasOwnProperty('_select')) {

@@ -270,6 +270,37 @@ await test('find', async (t) => {
       },
       {
         name: POSTS,
+        params: { _select: 'title,views' },
+        res: [
+          {
+            title: post1.title,
+            views: post1.views
+          },{
+            title: post2.title,
+            views: post2.views
+          },{
+            title: post3.title,
+            views: post3.views
+          }
+        ],
+      },
+      {
+        name: POSTS,
+        params: { q: 'b' },
+        res: [post2],
+      },
+      {
+        name: POSTS,
+        params: { q: 'johnny' },
+        res: [],
+      },
+      {
+        name: POSTS,
+        params: { q: '' },
+        res: [post1, post2, post3],
+      },
+      {
+        name: POSTS,
         params: { _embed: ['comments'] },
         res: [
           { ...post1, comments: [comment1] },

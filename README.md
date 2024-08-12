@@ -4,7 +4,14 @@
 [![Node.js CI](https://github.com/typicode/json-server/actions/workflows/node.js.yml/badge.svg)](https://github.com/typicode/json-server/actions/workflows/node.js.yml)
 
 > [!IMPORTANT]
-> This is a fork from original [json-server](https://github.com/typicode/json-server) repository
+> This is a fork from original [json-server](https://github.com/typicode/json-server) repository (`v1.0.0-beta.1`)
+
+## Modifications comparing to the original `json-server@v1.0.0-beta.1`
+
+- [Select](https://github.com/ivanzusko/json-server-extended?tab=readme-ov-file#select)
+- [Search](https://github.com/ivanzusko/json-server-extended?tab=readme-ov-file#search)
+
+[CHANGELOG.md](https://github.com/ivanzusko/json-server-extended/blob/main/CHANGELOG.md)
 
 > [!IMPORTANT]
 > Viewing beta v1 documentation – usable but expect breaking changes. For stable version, see [here](https://github.com/typicode/json-server/tree/v0)
@@ -139,6 +146,16 @@ PATCH /profile
 
 ```
 GET /posts?views_gt=9000
+```
+
+### Search
+
+Search isn't case sensitive
+
+- `q`
+
+```
+GET /posts?q=sometext
 ```
 
 ### Range
