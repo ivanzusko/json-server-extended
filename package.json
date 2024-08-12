@@ -1,6 +1,6 @@
 {
-  "name": "json-server",
-  "version": "1.0.0-beta.1",
+  "name": "json-server-extended",
+  "version": "1.0.0",
   "description": "",
   "type": "module",
   "bin": {
@@ -27,8 +27,15 @@
   "license": "SEE LICENSE IN ./LICENSE",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/typicode/json-server.git"
+    "url": "git+https://github.com/ivanzusko/json-server-extended.git"
   },
+  "bugs": {
+    "url": "https://github.com/ivanzusko/json-server-extended/issues",
+    "email": "ivan.zusko@gmail.com"
+  },
+  "contributors": [
+    "Ivan Zusko <ivan.zusko@gmail.com>"
+  ],
   "devDependencies": {
     "@sindresorhus/tsconfig": "^5.0.0",
     "@tailwindcss/typography": "^0.5.13",
