@@ -178,6 +178,7 @@ export class Service {
       _limit?: number
       _page?: number
       _per_page?: number
+      _select?: string | string[]
     } = {},
   ): Item[] | PaginatedItems | Item | undefined {
     let items = this.#get(name)
@@ -314,7 +315,27 @@ export class Service {
 
     // Sort
     const sort = query._sort || ''
-    const sorted = sortOn(res, sort.split(','))
+    let sorted = sortOn(res, sort.split(','))
+
+    // Keep only selected properties
+    if (conds.hasOwnProperty('_select')) {
+      let [_, paramValue] = conds['_select']
+
+      if (!Array.isArray(paramValue)) {
+        paramValue = paramValue.split(',')
+      }
+
+      sorted = sorted.map((item: Item) => {
+        let itemWithSelectedProperties: {
+          [k: string]: any
+        } = {}
+
+        paramValue.forEach(prop => {
+          itemWithSelectedProperties[prop] = item[prop]
+        })
+        return itemWithSelectedProperties
+      })
+    }
 
     // Slice
     const start = query._start

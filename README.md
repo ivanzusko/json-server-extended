@@ -1,7 +1,11 @@
-# json-server
+# json-server-extended
+
 
 [![Node.js CI](https://github.com/typicode/json-server/actions/workflows/node.js.yml/badge.svg)](https://github.com/typicode/json-server/actions/workflows/node.js.yml)
 
+> [!IMPORTANT]
+> This is a fork from original [json-server](https://github.com/typicode/json-server) repository
+upd
 > [!IMPORTANT]
 > Viewing beta v1 documentation – usable but expect breaking changes. For stable version, see [here](https://github.com/typicode/json-server/tree/v0)
 
@@ -10,7 +14,7 @@
 ## Install
 
 ```shell
-npm install json-server
+npm install json-server-extened
 ```
 
 ## Usage
@@ -163,6 +167,16 @@ GET /posts?_page=1&_per_page=25
 
 ```
 GET /posts?_sort=id,-views
+```
+
+### Select
+
+Specify fields which needs to be included in the response:
+
+- `_select=f1,f2`
+
+```
+GET /comments?_select=id,text
 ```
 
 ### Nested and array fields
