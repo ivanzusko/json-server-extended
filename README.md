@@ -5,7 +5,7 @@
 
 > [!IMPORTANT]
 > This is a fork from original [json-server](https://github.com/typicode/json-server) repository
-upd
+
 > [!IMPORTANT]
 > Viewing beta v1 documentation – usable but expect breaking changes. For stable version, see [here](https://github.com/typicode/json-server/tree/v0)
 
