@@ -324,7 +324,8 @@ export class Service {
       sorted = sorted.filter(item => {
         for (const prop in item) {
           if (typeof item[prop] === 'string') {
-            if (item[prop].toLowerCase().includes(searchQuery.toLowerCase()) ) {
+            const value = item[prop] as string
+            if (value.toLowerCase().includes(searchQuery.toLowerCase()) ) {
               return true
             }
           }
